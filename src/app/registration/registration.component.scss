@@ -1,0 +1,55 @@
+div
+{
+text-align:left;
+//background-color:#9999ff;
+
+
+padding-top:8px;
+
+padding-bottom:20px;
+padding-left:30px;
+padding-right:30px;
+}
+h1
+{
+	color: white;
+	
+}
+
+body
+{
+background-image: url("../../assets/register/registerbg.jpg");	
+
+}
+
+table
+{
+	color: white;
+	text-align:left;
+	font-size:20px;
+	padding-left:10%;
+}
+input[type=text],input[type=password],input[type=email]
+{
+	width:120%;
+	padding:3px;
+	
+}
+input[type=submit]
+{
+	
+	width:90%;
+	padding:8px;
+	font-family:bold;
+	font-size:20px;
+}
+
+input[type=text]:hover,input[type=password]:hover,input[type=email]:hover,input[type=submit]:hover
+{
+	background-color:#ccccff;
+}
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,input[type=submit]:focus
+{
+	background-color:#ccccff;
+}
+

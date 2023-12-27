@@ -1,0 +1,11 @@
+<body>
+<div class="galary" *ngFor="let product of productList">
+    <button (click)="getProductById(product.productId)">
+    <img src="{{product.productImgUrl}}" height="200" width="200"/>
+    <div class="disc">
+    <p>{{product.productName}}</p>
+    <p>Price : {{product.price}} .Rs</p>
+    </div>
+    </button>
+    </div>
+    </body>

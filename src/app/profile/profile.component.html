@@ -1,0 +1,204 @@
+
+<html>
+    <body>
+
+<h1>Profile Page</h1>
+
+<div>
+    <form (ngSubmit)="f.form.valid&&OnSubmit()" #f="ngForm" novalidate>
+<table class="container">
+
+<tr class="img">
+<td rowspan="8">
+<img src="../../assets/profile/profileIcon1.png" height="400" width="300" alt="NO photo"/><br><br>
+
+
+</td>
+</tr>
+<tr>
+<td>
+<!-- <label for="un">UserName :</label><br>
+<input type="text" id="un"  name="un"[(ngModel)]="userInfo.userName" >
+</td>
+</tr> -->
+<tr>
+<td>
+<label for="fn">FirstName :</label><br>
+<input type="text" id="fn" name ="fn"placeholder="FirstName" pattern="[a-zA-Z][a-zA-Z]+" minlength="3" required [(ngModel)]="userInfo.userFirstName" #firstName="ngModel">
+<span class="text-danger" *ngIf="this.submit&&firstName.errors?.['required']">
+    <p>First Name required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&firstName.errors?.['pattern']">
+    <p>First Name should containes only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&firstName.errors?.['minlength']">
+    <p>First Name required min 3 letters</p>
+</span>
+</td>
+<td>
+<label for="ln">LastName :</label><br>
+<input type="text" id="ln" name="ln"placeholder="LastName" pattern="[a-zA-Z][a-zA-Z]+" minlength="1" required [(ngModel)]="userInfo.userLastName" #ln="ngModel">
+<span class="text-danger" *ngIf="this.submit&&ln.errors?.['required']">
+    <p>Last Name required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&ln.errors?.['pattern']">
+    <p>Last Name should containes only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&ln.errors?.['minlength']">
+    <p>Last Name required min 1 letters</p>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<label for="age">Age :</label><br>
+<input type="text" id="age" name="age" placeholder="Age" maxlength="2" required  [(ngModel)]="userInfo.userAge" pattern="^[0-9]*$" #age="ngModel">
+<span class="text-danger" *ngIf="this.submit&&age.errors?.['required']">
+    <p>Age required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&age.errors?.['pattern']">
+    <p>Age should containes only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&age.value<17">
+    <p>Age should be 18 above</p>
+</span>
+</td>
+
+<td>
+<label for="email">Email :</label><br>
+<input type="text" id="email" name="email" placeholder="Email"  disabled required [(ngModel)]="userInfo.userEmail" #email="ngModel" >
+<span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+    <p>Email required</p>
+</span>
+</td>
+
+
+<td>
+<label for="contact">Contact Number :</label><br>
+<input type="text" id="contact" name="contact" placeholder="Contact Number" required pattern="^[0-9]*$" minlength="10" maxlength="10" [(ngModel)]="userInfo.userContactNumber" #contact="ngModel">
+<span class="text-danger" *ngIf="this.submit&&contact.errors?.['required']">
+    <p>Contact number is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&contact.errors?.['pattern']">
+    <p>Contact number should containes only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&contact.errors?.['minlength']">
+    <p>Contact number required must 10 digits</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&contact.value==0">
+    <p>Contact number can't be Zero</p>
+</span>
+</td>
+
+<td>
+<label for="gender">Gender :</label><br>
+<select id="gender" name="gender" [(ngModel)]="userInfo.userGender">
+<option value="">select...</option>
+<option value="Male">Male</option>
+<option value="FeMale">FeMale</option>
+<option value="Others">Others</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="country">Country :</label><br>
+<input type="text" id="country" name="country"placeholder="Country" required pattern="[a-zA-Z][a-zA-Z]+"minlength="3" [(ngModel)]="userInfo.userCountry" #country="ngModel">
+<span class="text-danger" *ngIf="this.submit&&country.errors?.['required']">
+    <p>Country required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&country.errors?.['pattern']">
+    <p>Country should containes only leteers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&country.errors?.['minlength']">
+    <p>Country required min 3 leteers</p>
+</span>
+</td>
+
+<td>
+<label for="state">State :</label><br>
+<input type="text" id="state" name="state"placeholder="State" required pattern="[a-zA-Z][a-zA-Z]+" minlength="3" [(ngModel)]="userInfo.userState" #state="ngModel">
+<span class="text-danger" *ngIf="this.submit&&state.errors?.['required']">
+    <p>State required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&state.errors?.['pattern']">
+    <p>State should contains only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&state.errors?.['minlength']">
+    <p>State required min 3 letters</p>
+</span>
+
+
+</td>
+
+<td>
+<label for="district">District :</label><br>
+<input type="text" id="district" name="district"placeholder="District" required pattern="[a-zA-Z][a-zA-Z]+" minlength="3" [(ngModel)]="userInfo.userDistrict" #district="ngModel">
+<span class="text-danger" *ngIf="this.submit&&district.errors?.['required']">
+    <p>District required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&district.errors?.['pattern']">
+    <p>District should contains only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&district.errors?.['minlength']">
+    <p>District required min 3 letters</p>
+</span>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="address">Address :</label><br>
+<textarea id="address" rows="5"  name ="address"placeholder="Address" required pattern="[a-zA-Z0-9,.]+" minlength="5" [(ngModel)]="userInfo.userAddress" #address="ngModel">
+</textarea>
+<span class="text-danger" *ngIf="this.submit&&address.errors?.['required']">
+    <p>Address required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&address.errors?.['pattern']">
+    <p>Address should not contains special charecters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&address.errors?.['minlength']">
+    <p>pleace Enter your full address</p>
+</span>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="pincode">PinCode:</label><br>
+<input type="text" id="pincode" name="pin"placeholder="PinCode" required pattern="^[0-9]*$" minlength="6" maxlength="6" [(ngModel)]="userInfo.userPincode" #pin="ngModel">
+<span class="text-danger" *ngIf="this.submit&&pin.errors?.['required']">
+    <p>PinCode required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&pin.errors?.['pattern']">
+    <p>PinCode should contains only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&pin.errors?.['minlength']">
+    <p>PinCode required must 6 digits number</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&pin.value==0">
+    <p>PinCode can't be Zero</p>
+</span>
+</td>
+</tr>
+
+
+<tr>
+    <td>
+        <!-- <button (click)="goToHome2()" class="btn btn-danger">Cancel</button> -->
+    </td>
+<td>
+<input type="submit" class="btn btn-primary"value="Update Profile" (click)="submit=true">
+</td>
+
+</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>
+
+
+

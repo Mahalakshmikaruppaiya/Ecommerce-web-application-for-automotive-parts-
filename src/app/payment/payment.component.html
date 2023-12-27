@@ -1,0 +1,173 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+<div class="p">
+    <form (ngSubmit)="f.form.valid&&OnSubmit()" #f="ngForm" novalidate>
+    <table>
+        <tr><th>
+            <h1>Confirm Your Payment</h1>
+            </th>
+        </tr>
+        <tr>
+            <td>
+             <label for="owner"  >Owner</label><br>
+             <input type="text" id="owner" name="owner" minlength="3" pattern="[a-zA-Z][a-zA-Z]+" required placeholder="Card Holder Name" [(ngModel)]="buyProduct.cardWonerName" #owner="ngModel">
+            <span class="text-danger" *ngIf="this.submit&&owner.errors?.['required']">
+              <p>Owner Name is required</p>
+            </span>
+            <span class="text-danger" *ngIf="this.submit&&owner.errors?.['minlength']">
+              <p>Name required min 3 letters</p>
+            </span>
+            <span class="text-danger" *ngIf="this.submit&&owner.errors?.['pattern']">
+              <p>Enter Valide Name <br> Name should Containe only Letters</p>
+            </span>
+            </td>
+            
+            <td>
+                <label for="cvv">cvv</label><br>
+                <input type="text" id="cvv" name="cvv" minlength="3" maxlength="3" pattern="^[0-9]*$" required placeholder="cvv" [(ngModel)]="buyProduct.cvv" #cvv="ngModel">
+                <span class="text-danger" *ngIf="this.submit&&cvv.errors?.['required']">
+                  <p>Cvv is required</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit&&cvv.errors?.['minlength']">
+                  <p>Cvv required must 3 Numbers</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && cvv.errors?.['pattern']">
+                  <br>
+                  Enter Valid Number<br> Cvv should Containe only Numbers
+                </span>
+                <span class="text-danger" *ngIf="this.submit&&cvv.value==0">
+                  <p>Cvv can't be Zero</p>
+                </span>
+              </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2">
+            <label for="cn">Card Number</label><br>
+            <input type="text" id="cn" name="cn" minlength="16" maxlength="16" pattern="^[0-9]*$" required placeholder="Card Number" [(ngModel)]="buyProduct.debitCardNumber" #number="ngModel">
+            <span class="text-danger" *ngIf="this.submit&&number.errors?.['required']">
+              <p>Card Number is required</p>
+            </span>
+            <span class="text-danger" *ngIf="this.submit&&number.errors?.['minlength']">
+              <p>Card Number must have 16 Digits</p>
+            </span>
+            <span class="text-danger" *ngIf="this.submit&&number.errors?.['pattern']">
+              <p>Enter Valid Card Number<br> Card Number should Containe only Numbers</p>
+            </span>  
+            <span class="text-danger" *ngIf="this.submit&&number.value==0">
+              <p>Card Number can't be Zero</p>
+            </span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="ed">Expiration Date</label><br>
+                <input type="text" id="ed" name="ed1" size="5px" minlength="2" maxlength="2" pattern="[0-9]*$" required placeholder="Month" [(ngModel)]="buyProduct.month" #m="ngModel">
+                <input type="text" id="ed" name="ed2" size="5px" minlength="4" maxlength="4" pattern="[0-9]*$" required placeholder="Year" [(ngModel)]="buyProduct.year" #y="ngModel">
+                <span class="text-danger" *ngIf="(this.submit)&&(m.errors?.['required'])">
+                  <p>Month is required</p>
+                </span>
+                <span class="text-danger" *ngIf="(this.submit)&&(y.errors?.['required'])">
+                  <p>Year is required</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && m.errors?.['minlength'] ">
+                  <p>Month must have 2 Digits</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && m.value>12">
+                  <p>we only have 12 month pleace enter valid month</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && y.errors?.['minlength'] ">
+                  <p>Month must have 4 Digits</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && m.errors?.['pattern'] && y.errors?.['pattern']">
+                  <p>Enter Valid Month and Year <br> Month and Year Should containes only numbers</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && m.value==0 ">
+                  <p>Month can't be Zero</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && m.value<currentMonth ">
+                  <p>Pleace Enter Valid Month</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && y.value==0 ">
+                  <p>Month can't be Zero</p>
+                </span>
+                <span class="text-danger" *ngIf="this.submit && y.value<currentYear">
+                  <p>Pleace Enter Valid Year</p>
+                </span>
+            </td>
+            <td>
+                <img src="../../assets/payment/debit.jpg" height="100" width="150">
+                <img src="../../assets/payment/masterDebit.jpg" height="90" width="150">
+                
+            </td>
+        </tr>
+        <br>
+        <tr>
+          <td>
+           
+            
+            <button (click)="back()" id="btnb" class="btn btn-danger">Back</button>
+            
+
+          </td>
+          <td >
+            <input type="submit" id="btnc" value="Pay" class="btn btn-primary" (click)="submit=true">
+            </td>
+            <td style="font-size: 20px;padding-left: 20px;">
+              <img src="../../assets/payment/rs (3).png" height="50" width="50">
+              Rs. {{product.price}}
+          </td>
+        </tr>
+    </table>
+</form>
+</div>
+    <footer>
+        <p>Company @copyrights OurCompany. All rights reserved.</p>
+      </footer>
+      </body>
+      </html>

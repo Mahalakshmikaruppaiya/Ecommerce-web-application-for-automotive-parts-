@@ -1,0 +1,91 @@
+<body>
+       <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/adminHome"routerLinkActive="active"class="nav-link">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+            <li class="nav-item">
+              <a routerLink="/adminAbout"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/adminContact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/deliveries"routerLinkActive="active"class="nav-link">Deliveries</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/adminGetProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a routerLink="/register"routerLinkActive="active"class="nav-link">Register</a>
+                </li> -->
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    
+<div  id="info" class="container">
+    <br>
+    <h2 style="color:white">{{product.productName}}</h2>
+<table >
+    <tr>
+        <td rowspan="15">
+            <img src="{{product.productImgUrl}}" height="400" width="400">
+        </td>
+    </tr>
+    <tr>
+        <td class="td1">Product Name :</td><td class="td2">{{product.productName}}</td>
+    </tr>
+    <tr>
+        <td class="td1">Model No : </td><td class="td2">{{product.model}}</td>
+    </tr>
+    <tr>
+        <td class="td1">Brand : </td><td class="td2">{{product.brand}}</td>
+    </tr>
+    <tr>
+        <td class="td1">No Of Stocks : </td><td class="td2">{{product.noOfStack}}</td>
+    </tr>
+    <tr>
+        <td class="td1">Price : </td><td class="td2">{{product.price}}</td>
+    </tr>
+    <tr>
+        <td class="td1">Rating : </td><td class="td2">{{product.productRating}}</td>
+    </tr>
+    <tr>
+        <td class="td1">Waranty : </td><td class="td2">{{product.productWaranty}} year</td>
+    </tr>
+    <tr>
+        <td colspan="2"><button class="btn btn-info" (click)="goToHome2()">Back To Home</button></td>
+        <td ><button class="btn btn-primary" (click)="goToProductUpdate(product.productId)">Update Product</button></td>
+        <td><button class="btn btn-danger"(click)="onSubmit(product.productId)">Delete Product</button></td>
+       
+    </tr>
+    
+</table>
+
+</div> 
+
+<footer>
+    <p>Company @copyrights OurCompany. All rights reserved.</p>
+  </footer>
+</body>

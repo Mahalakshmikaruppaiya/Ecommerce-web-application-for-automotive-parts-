@@ -1,0 +1,22 @@
+export class BuyProduct 
+{
+    id!:number;
+    userEmail!:string;
+    productId!:number;
+    imgUrl!:string;
+	productName!:string;
+	price!:number;
+	paymentMethod!:string;
+    debitCardNumber!:number;
+	cardWonerName!:string;
+	cvv!:string;
+	month!:number;
+	year!:number;
+	bankName!:string;
+	bankBranch!:string;
+	bankAccountHolderName!:string;
+	accountNumber!:number;
+	googlePayUserName!:string;
+	upi!:string;
+	date!:string;
+}

@@ -1,0 +1,61 @@
+div
+{
+	text-align:center;
+	padding-top: 80px;
+	
+}
+
+table
+{
+	color:white;
+	font-size:18px;
+	text-align:left;
+}
+input[type=text],#gender
+{
+	width:90%;
+	padding:6px;
+}
+
+input[type=text]:hover,#gender:hover,input[type=submit]:hover,#address:hover
+{
+	background-color:#ccccff;
+}
+input[type=text]:focus,#gender:focus,#address:focus
+{
+	background-color:lightgray;
+}
+input[type=submit]
+{
+	width:200%;
+	padding:7px;
+	font-size:20px;
+	//background-color:lightgreen;
+}
+body
+{
+	//background-color:lightblue;
+	background-image:url("../../assets/admin/adminbg.jpg");
+height: 700px;
+}
+.img
+{
+	//background-color:blue;
+	padding-bottom:30px;
+	margin-left:50px;
+	margin-right:50px;
+	padding-right:50%;
+	padding-left:50px;
+}
+td
+{
+	padding: 3px;
+}
+button
+{
+	text-align: right;
+}
+h1
+{
+	color:white;
+}

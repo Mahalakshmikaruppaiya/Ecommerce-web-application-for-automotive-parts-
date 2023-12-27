@@ -1,0 +1,50 @@
+	body fram
+
+1.    ../../assets/productImg/body frame/frame1.jpg
+2.    ../../assets/productImg/body frame/frame2.jpg
+3.    ../../assets/productImg/body frame/frame3.jpg
+4.    ../../assets/productImg/body frame/frame4.jpg
+5.    ../../assets/productImg/body frame/frame5.jpg
+
+	engine
+1.    ../../assets/productImg/engine/engine1.jpg
+2.    ../../assets/productImg/engine/engine2.jpg
+3.    ../../assets/productImg/engine/engine3.png
+4.    ../../assets/productImg/engine/engine4.jpg
+5.    ../../assets/productImg/engine/engine5.jpg
+
+	wheels
+1.    ../../assets/productImg/wheels/wheel1.jpg
+2.    ../../assets/productImg/wheels/wheel2.jpg
+3.    ../../assets/productImg/wheels/wheel3.jpg
+4.    ../../assets/productImg/wheels/wheel4.jpg
+5.    ../../assets/productImg/wheels/wheel5.jpg
+
+	lights
+1.   ../../assets/productImg/light/blight1.jpg
+2.   ../../assets/productImg/light/blight2.jpg
+3.   ../../assets/productImg/light/blight3.jpg
+4.   ../../assets/productImg/light/light1.jpg
+5.   ../../assets/productImg/light/light2.jpg
+6.   ../../assets/productImg/light/light3.jpg
+
+	oils
+1.  ../../assets/productImg/oil/oil1.jpg
+2.  ../../assets/productImg/oil/oil2.jpg
+3.  ../../assets/productImg/oil/oil3.jpg
+4.  ../../assets/productImg/oil/oil4.jpg
+5.  ../../assets/productImg/oil/oil5.jpg
+
+	transmission
+1.  ../../assets/productImg/transmission/tr1.jpg
+2.  ../../assets/productImg/transmission/tr2.jpg
+3.  ../../assets/productImg/transmission/tr3.jpg
+4.  ../../assets/productImg/transmission/tr4.jpg
+5.  ../../assets/productImg/transmission/tr5.jpg
+
+	tirs
+1.  ../../assets/productImg/tirs/tire1.jpg
+2.  ../../assets/productImg/tirs/tire2.jpg
+3.  ../../assets/productImg/tirs/tire3.jpg
+4.  ../../assets/productImg/tirs/tire4.jpg
+5.  ../../assets/productImg/tirs/tire5.jpg

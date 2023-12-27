@@ -1,0 +1,58 @@
+<body>
+    <div class="container">
+    
+    <h1 class="">Registration Page</h1>
+    
+    <form (ngSubmit)="OnSubmit()">
+    <table class="container">
+        <tr>
+            <td rowspan="15"><img src="../../assets/register/img1.png" height="600px" width="400px"/></td>
+        </tr>
+    <tr>
+    <td>
+    <label for="un">UserName : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="text" id="un" name="un" placeholder="UserName" required [(ngModel)]="user.userName"><br><br>
+    </td></tr><br>
+    <tr>
+    <td>
+    <label for="el">Email : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="email" id="el" name="el" placeholder="Email" required [(ngModel)]="user.userEmail"><br><br>
+    </td></tr><br>
+    <tr>
+    <td>
+    <label for="pw">PassWord  : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="password" id="pw" name="pw" placeholder="password" required [(ngModel)]="user.userPassword"><br><br>
+    </td></tr><br>
+    <tr>
+    <td>
+    <label for="pw">Confirm PassWord  : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="password" id="pw" name="pw" placeholder="Confirm Password" required><br><br>
+    </td></tr><br>
+    <tr>
+    <td>
+    <input type="submit" class="btn btn-primary"value="Register"/>
+    </td>
+    <td>
+    <button (click)="goToLogin()"class="btn btn-success">Login</button>
+    </td></tr>
+    </table>
+    </form>
+    
+    </div>
+    </body>

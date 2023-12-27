@@ -1,0 +1,254 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    <div class="tbl">
+        <br>
+        <h2 style="color:black;margin-left: 40%;">Payment Invoice</h2><br>
+        <table border="1px" style="width: 100%" class="container">
+            
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <b>Customer Details</b>
+                </td>
+                <td colspan="2" style="padding-left: 15%;">
+                    <b>    Product Info </b>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 10%;">
+                   Name :
+                </td>
+                <td>
+                    <!-- Magi J -->
+                    {{userInfo.userFirstName}} {{userInfo.userLastName}} 
+                </td>
+               
+                <td style="padding-left: 6%;">
+                    Product Name :
+                </td>
+                <td>
+                    <!-- Engine -->
+                    {{product.productName}} 
+                </td>
+        
+            </tr>
+            <tr>
+                <td style="padding-left: 10%;">
+                    Email :
+                </td>
+                <td>
+                    <!-- Magi123@gmail.com -->
+                    {{userInfo.userEmail}} 
+                </td>
+                <td style="padding-left: 6%;">
+                    Product ID :
+                </td>
+                <td>
+                    <!-- 12 -->
+                    {{product.productId}} 
+                </td>
+
+            </tr>
+            <tr>
+                <td style="padding-left: 10%;">
+                    Phone :
+                </td>
+                <td>
+                    <!-- 7645649264 -->
+                    {{userInfo.userContactNumber}} 
+                </td>
+                <td style="padding-left: 6%;">
+                    Price :
+                </td>
+                <td>
+                    <!-- 12000 -->
+                    {{product.price}} 
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="padding-left: 6%;">
+                    Warranty :
+                </td>
+                <td>
+                    <!-- 2 years -->
+                    {{product.productWaranty}} Year 
+                </td>
+            </tr>  
+            <tr>
+                <td colspan="2" style="padding-left: 15%;">
+                    <b>payment Info</b>
+                </td>
+                <td colspan="2" style="padding-left: 15%;">
+                    <b>Company Details</b>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 4%;">
+                    Payment Method :
+                </td>
+                <td>
+                    <!-- Cridite card -->
+                    {{paymentMethod}}
+                </td>
+                <td style="padding-left: 4%;">
+                    Company Name :
+                </td>
+                <td>
+                    Our Compay
+                </td>
+            </tr>
+            <tr>
+                <td *ngIf="paymentMethod=='Debit Card'" style="padding-left: 4%;">
+                    Card No :
+                </td>
+                <td *ngIf="paymentMethod=='Debit Card'">
+                    {{cardNumber}}
+                </td>
+                
+                <td *ngIf="paymentMethod=='Bank'" style="padding-left: 4%;">
+                    A/C No :
+                </td>
+                <td *ngIf="paymentMethod=='Bank'">
+                    {{cardNumber}}
+                </td>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='GooglePay'">
+                    GPay User Name :
+                </td>
+                <td *ngIf="paymentMethod=='GooglePay'">
+                    {{gPayUserName}}
+                </td>
+                <td style="padding-left: 4%;"*ngIf="paymentMethod=='CaseOn Delivery'">
+                    Payment Date :
+                </td>
+                <td *ngIf="paymentMethod=='CaseOn Delivery'">
+                    {{date}}
+                </td>
+                
+                <td style="padding-left: 4%;">
+                    Contact No :
+                </td>
+                <td>
+                    +91 9384703505
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Debit Card'">
+                    Card Woner Name :
+                </td>
+                <td *ngIf="paymentMethod=='Debit Card'">
+                    {{cardWonerName}}
+                </td>
+                
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Bank'">
+                    A/C Holder Name :
+                </td>
+                <td *ngIf="paymentMethod=='Bank'">
+                    {{cardWonerName}}
+                </td>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='GooglePay'">
+                    GooglePay UPI :
+                </td>
+                <td *ngIf="paymentMethod=='GooglePay'">
+                    {{gPayUpi}}
+                </td>
+                <td *ngIf="paymentMethod=='CaseOn Delivery'">
+                    
+                </td>
+                <td *ngIf="paymentMethod=='CaseOn Delivery'">
+                    
+                </td>
+                <td style="padding-left: 4%;">
+                    Email :
+                </td>
+                
+                <td>
+                    OurCompany12@gmail.com
+                </td>
+
+            </tr>
+            <tr>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Debit Card'">
+                    Payment Date :
+                </td>
+                <td *ngIf="paymentMethod=='Debit Card'">
+                    {{date}}
+                </td>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='GooglePay'">
+                    Payment Date :
+                </td>
+                <td *ngIf="paymentMethod=='GooglePay'">
+                    {{date}}
+                </td>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Bank'">Bank Name :</td>
+                <td *ngIf="paymentMethod=='Bank'">{{bankName}}</td>
+            </tr>
+            <tr>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Bank'">Branch Name :</td>
+                <td *ngIf="paymentMethod=='Bank'">{{branch}}</td>
+            </tr>
+            <tr>
+                <td style="padding-left: 4%;" *ngIf="paymentMethod=='Bank'">Payment Date :</td>
+                <td *ngIf="paymentMethod=='Bank'">{{date}}</td>
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <button class="btn btn-success" (click)="goToPurchase()">DONE</button>
+                </td>
+            </tr>
+            <br>
+            <br>
+        </table>
+    </div>
+    <footer>
+        <p>Company @copyrights OurCompany. All rights reserved.</p>
+      </footer>
+      </body>
+      </html>

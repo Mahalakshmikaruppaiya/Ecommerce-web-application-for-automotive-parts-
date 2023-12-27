@@ -1,0 +1,150 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    <table class="container">
+      <tr>
+        <td class="container">
+            <h1>Confirm Your Bank Details</h1>
+        </td>
+        <td>
+          <img src="../../assets/paymentMethods/arrow (2).png" height="30px" width="60px">
+      </td>
+        <td>
+          <button class="btn btn-danger" (click)="back()">Back</button>
+        </td>
+      </tr>
+    </table>
+    <div class="tbl">
+        <form (ngSubmit)="f.form.valid&&OnSubmit()"#f="ngForm" novalidate>
+        <table>
+      
+            <tr>
+                <td rowspan="6">
+                    <img src="../../assets/paymentMethods/bank.png" height="400"width="500">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Holder Name :</label><br>
+                    <input type="text" id="name" name="name" pattern="[a-zA-Z][a-zA-Z]+" minlength="3" [(ngModel)]="buyProduct.bankAccountHolderName"  placeholder="Holder Name" required #name="ngModel">
+                <span class="text-danger"*ngIf="this.submit&&name.errors?.['required']">
+                  <p>Name is required</p>
+                </span>
+                <span class="text-danger"*ngIf="this.submit&&name.errors?.['minlength']">
+                  <p>Name required min 3 letters</p>
+                </span>
+                <span class="text-danger"*ngIf="this.submit&&name.errors?.['pattern']">
+                  <p>Name should containes only letters</p>
+                </span>
+                  </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="bn">Bank Name :</label><br>
+                    <input type="text" id="bn" placeholder="Bank Name" pattern="[a-zA-Z][a-zA-Z]+" minlength="3" name="bn" [(ngModel)]="buyProduct.bankName" required #bankName="ngModel">
+                    <span class="text-danger"*ngIf="this.submit&&bankName.errors?.['required']">
+                      <p>Bank Name is required</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&bankName.errors?.['minlength']">
+                      <p>Bank Name required min 3 letters </p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&bankName.errors?.['pattern']">
+                      <p>Bank Name should containes only letters</p>
+                    </span>
+
+                  </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="branch">Branch :</label><br>
+                    <input type="text" id="branch" placeholder="Branch" pattern="[a-zA-Z][a-zA-Z]+" minlength="3" name="branch" [(ngModel)]="buyProduct.bankBranch" required #branch="ngModel">
+                    <span class="text-danger"*ngIf="this.submit&&branch.errors?.['required']">
+                      <p>Branch is required</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&branch.errors?.['minlength']">
+                      <p>Branch required min 3 letters</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&branch.errors?.['pattern']">
+                      <p>Branch should containes only letteers</p>
+                    </span>
+                  </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ac">Account No :</label><br>
+                    <input type="text" id="ac" placeholder="Account No" pattern="^[0-9]*$" minlength="16" maxlength="16" name="ac" [(ngModel)]="buyProduct.accountNumber" required #ac="ngModel">
+                    <span class="text-danger"*ngIf="this.submit&&ac.errors?.['required']">
+                      <p>Account No. is required</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&ac.errors?.['pattern']">
+                      <p>Account No. should containes only numbers</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&ac.errors?.['minlength']">
+                      <p>Account No. required min 16 Digits</p>
+                    </span>
+                    <span class="text-danger"*ngIf="this.submit&&ac.value==0 ">
+                      <p>Account No. can't be Zero</p>
+                    </span>
+                  </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <input type="submit" value="Pay" class="btn btn-primary" (click)="submit=true">
+                </td>
+                <td style="font-size: 20px;padding-left: 20px;">
+                    <img src="../../assets/payment/rs (3).png" height="50" width="50">
+                    Rs. {{product.price}}
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+    </div>
+    <footer>
+        <p>Company @copyrights OurCompany. All rights reserved.</p>
+      </footer>
+      </body>
+      </html>

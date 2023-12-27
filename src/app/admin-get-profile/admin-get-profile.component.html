@@ -1,0 +1,109 @@
+<html>
+    <body>
+
+        
+                <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#" style="color:blue;font-size:20px ;">Our Company</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a routerLink="/adminHome"routerLinkActive="active"class="nav-link">Home</a>
+                          </li>
+                          <!-- <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li> -->
+                          <li class="nav-item">
+                            <a routerLink="/adminAbout"routerLinkActive="active"class="nav-link">About</a>
+                          </li>
+                          <li class="nav-item">
+                            <a routerLink="/adminContact"routerLinkActive="active"class="nav-link">Contact</a>
+                          </li>
+                          
+                        </ul>
+                        <form class="d-flex" role="search" id="search">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+                            <li class="nav-item"> 
+                              <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                              <a routerLink="/deliveries"routerLinkActive="active"class="nav-link">Deliveries</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/adminGetProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                              </li>
+                              <!-- <li class="nav-item">
+                                <a routerLink="/register"routerLinkActive="active"class="nav-link">Register</a>
+                              </li> -->
+                          </ul>
+                     
+                      </div>
+                    </div>
+                  </nav>
+<h1 style="color:white;">Admin Profile Page</h1>
+<table class="container" id="tbl" *ngFor="let profile of AdminList">
+    <tr>
+        <td rowspan="15"><img src="../../assets/admin/adminProfileIcon.png" height="550" width="300"/></td>
+    </tr>
+    <!-- <tr>
+        <td>User Name :</td>
+        <td>{{profile.userName}}</td>
+        <td><button (click)="goToAdminProfile()" class="btn btn-primary">update Profile</button></td>
+    </tr> -->
+    <tr>
+        <td>First Name : </td>
+        <td>{{profile.userFirstName}}</td>
+        <td><button (click)="goToAdminProfile(profile.userId)" class="btn btn-primary">Edit Profile</button></td>
+    </tr>
+    <tr>
+        <td>Last Name :</td>
+        <td>{{profile.userLastName}}</td>
+    </tr>
+    <tr>
+        <td>Email :</td>
+        <td>{{profile.userEmail}}</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>{{profile.userAge}}</td>
+    </tr>
+    <tr>
+        <td>Contact Number :</td>
+        <td>{{profile.userContactNumber}}</td>
+    </tr>
+    <tr>
+        <td>Gender :</td>
+        <td>{{profile.userGender}}</td>
+    </tr>
+    <tr>
+        <td>Country :</td>
+        <td>{{profile.userCountry}}</td>
+    </tr>
+    <tr>
+        <td>State :</td>
+        <td>{{profile.userState}}</td>
+    </tr>
+    <tr>
+        <td>District :</td>
+        <td>{{profile.userDistrict}}</td>
+    </tr>
+    <tr>
+        <td>Address :</td>
+        <td>{{profile.userAddress}}</td>
+    </tr>
+    <tr>
+        <td>PinCode</td>
+        <td>{{profile.userPincode}}</td>
+    </tr>
+</table>
+<footer>
+    <p>Company @copyrights OurCompany. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    
+<body>
+    <div class="container">
+
+    <h1>Admin Login Page</h1>
+
+    <form (ngSubmit)="OnSubmit()">
+        <div>
+    <table class="container">
+        <tr>
+            <td rowspan="15">
+                <img src="../../assets/login/loginIcon.png" alt="Image is Deleted" height="500" width="200">
+            </td>
+        
+    <tr>
+    <td>
+    <label for="un">UserName : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="text" id="un" name="un" placeholder="UserName" required [(ngModel)]="userName" /><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <label for="pw">PassWord  : </label>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="password" id="pw" name="pw" placeholder="PassWord" required [(ngModel)]="password" /><br>
+   <span  class="text-danger"*ngIf="submit==false">
+        <p>UserName or Password is NotValid</p>
+   </span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="submit" class="btn btn-primary" value="Login"/>
+    </td>
+    <td>
+        <button (click)="goToHome()" class="btn btn-danger">Back To Home</button>
+    </td>
+    </tr>
+    <tr >
+        <td style="color:black;">.</td>
+    </tr>
+    <tr>
+        <td style="color:black;">.</td>
+    </tr>
+    <tr>
+        <td style="color:black;">.</td>
+    </tr>
+    <tr>
+        <td style="color:black;">.</td>
+    </tr>
+    </table>
+    </div>
+    </form>
+    </div>
+    </body>
+    </html>

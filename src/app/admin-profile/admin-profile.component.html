@@ -1,0 +1,109 @@
+
+<html>
+    <body>
+<br>
+<h1>Profile Page</h1>
+
+<div>
+    <form (ngSubmit)="OnSubmit()">
+<table class="container">
+
+<tr class="img">
+<td rowspan="8">
+<img src="../../assets/profile/profileIcon1.png" height="400" width="300" alt="NO photo"/><br><br>
+
+</td>
+</tr>
+<!-- <tr>
+<td>
+<label for="un">UserName :</label><br>
+<input type="text" id="un" disabled [(ngModel)]="userInfo.userName">
+</td>
+</tr> -->
+<tr>
+<td>
+<label for="fn">FirstName :</label><br>
+<input type="text" id="fn" placeholder="FirstName" name="fn" required [(ngModel)]="userInfo.userFirstName">
+</td>
+<td>
+<label for="ln">LastName :</label><br>
+<input type="text" id="ln" placeholder="LastName" name="ln" required [(ngModel)]="userInfo.userLastName">
+</td>
+</tr>
+<tr>
+<td>
+<label for="age">Age :</label><br>
+<input type="text" id="age" placeholder="Age" name ="age"required [(ngModel)]="userInfo.userAge">
+</td>
+
+<td>
+<label for="email">Email :</label><br>
+<input type="text" id="email" placeholder="Email" name="email" required [(ngModel)]="userInfo.userEmail">
+</td>
+
+
+<td>
+<label for="contact">Contact Number :</label><br>
+<input type="text" id="contact" placeholder="Contact Number" name="cn" required [(ngModel)]="userInfo.userContactNumber">
+</td>
+
+<td>
+<label for="gender">Gender :</label><br>
+<select id="gender" name="gender" [(ngModel)]="userInfo.userGender">
+<option value="">select...</option>
+<option value="Male">Male</option>
+<option value="FeMale">FeMale</option>
+<option value="Others">Others</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="country">Country :</label><br>
+<input type="text" id="country" placeholder="Country" name="ct" required [(ngModel)]="userInfo.userCountry">
+</td>
+
+<td>
+<label for="state">State :</label><br>
+<input type="text" id="state" placeholder="State" name="state" required [(ngModel)]="userInfo.userState">
+</td>
+
+<td>
+<label for="district">District :</label><br>
+<input type="text" id="district" placeholder="District" name="dt"required [(ngModel)]="userInfo.userDistrict">
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="address">Address :</label><br>
+<textarea id="address" rows="5" placeholder="Address"  name="as"required [(ngModel)]="userInfo.userAddress">
+</textarea>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="pincode">PinCode:</label><br>
+<input type="text" id="pincode" placeholder="PinCode" name="pc" required [(ngModel)]="userInfo.userPincode">
+</td>
+</tr>
+<tr>
+    <td>
+        <button (click)="goToAdminGetProfile()" class="btn btn-danger">Cancel</button>
+    </td>
+<td>
+<input type="submit" class="btn btn-primary"value="Update Profile">
+</td>
+
+</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>
+
+
+

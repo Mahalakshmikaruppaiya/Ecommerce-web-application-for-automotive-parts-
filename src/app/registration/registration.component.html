@@ -1,0 +1,90 @@
+<body>
+
+<div class="container">
+
+<h1 class="">Registration Page</h1>
+
+<form (ngSubmit)="f.form.valid&&OnSubmit()" #f="ngForm" novalidate>
+<table class="container">
+    <tr>
+        <td rowspan="15"><img src="../../assets/register/img1.png" height="600px" width="400px"/></td>
+    </tr>
+<tr>
+<td>
+<label for="un">UserName : </label>
+</td>
+</tr>
+<tr>
+<td>
+<input type="text" id="un" name="un" placeholder="UserName" pattern="[a-zA-Z0-9]+" minlength="3" [(ngModel)]="user.userName" required #userName="ngModel" ><br><br>
+<span class="text-danger" *ngIf="this.submit&&userName.errors?.['required']">
+    <p>User Name is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&userName.errors?.['pattern']">
+    <p>UserName Should contains only letters and numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&userName.errors?.['minlength']">
+    <p>UserName required min 3 letters</p>
+</span>
+</td></tr><br>
+<tr>
+<td>
+<label for="el">Email : </label>
+</td>
+</tr>
+<tr>
+<td>
+<input type="email" id="el" name="el" placeholder="Email" [(ngModel)]="user.userEmail" required email #email="ngModel"><br><br>
+<span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+    <p>Email is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&email.errors?.['email']">
+    Email must be in format
+</span>
+</td></tr><br>
+<tr>
+<td>
+<label for="pw">PassWord  : </label>
+</td>
+</tr>
+<tr>
+<td>
+<input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" id="pw" minlength="8" name="pw" placeholder="password" [(ngModel)]="password1"required #password="ngModel" #p1 (keydown)="0"><br><br>
+<span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+    <p>Pleace Enter Password</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&password.errors?.['pattern']">
+    <p>Password must want to collection of numbers,symbols,letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&password.errors?.['minlength']">
+    <p>Password required min 8 charecter length</p>
+</span>
+</td></tr><br>
+<tr>
+<td>
+<label for="pw1">Confirm PassWord  : </label>
+</td>
+</tr>
+<tr>
+<td>
+<input type="text" id="pw1" name="pw1" placeholder="Confirm Password" [(ngModel)]="password2" required #confirm="ngModel" #p2 (keydown)="0"><br><br>
+<span class="text-danger" *ngIf="this.submit&&confirm.errors?.['required']">
+    <p>Pleace Enter Confiem Password</p>
+</span>
+<span class="text-danger" *ngIf="(p1.value!=p2.value)&&this.submit">
+    <p>Password and Confirm passsword Must be Same</p>
+</span>
+</td></tr><br>
+<tr>
+<td>
+<input type="submit" class="btn btn-primary"value="Register" (click)="submit=true"/>
+</td>
+<td>
+<button (click)="goToLogin()"class="btn btn-success">Login</button>
+</td></tr>
+</table>
+</form>
+
+</div>
+
+</body>

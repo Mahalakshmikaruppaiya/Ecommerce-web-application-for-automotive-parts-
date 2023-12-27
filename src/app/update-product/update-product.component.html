@@ -1,0 +1,174 @@
+
+<html>
+    <body>
+
+<h1>Update Product Page</h1>
+
+<div>
+    <form (ngSubmit)="f.form.valid&&OnSubmit(productInfo.productId)" #f="ngForm" novalidate>
+<table class="container">
+
+<tr class="img">
+<td rowspan="8">
+<img src="../../assets/product Icon/icon.webp" height="500" width="400" alt="NO photo"/><br><br>
+
+
+</td>
+</tr>
+
+<tr>
+    <td>
+        <label for="name">ImgUrl :</label><br>
+        <input type="text" id="il" placeholder="url" name="il"required [(ngModel)]="productInfo.productImgUrl"#img="ngModel">
+        <span class="text-danger" *ngIf="this.submit&&img.errors?.['required']">
+            <p>Img is required</p>
+        </span>
+    </td>
+<td>
+<label for="ct">Category :</label><br>
+<select id="ct"name="Category" required [(ngModel)]="productInfo.productPart" #ct="ngModel">
+    <option value="">select...</option>
+    <option value="bodayFrame">Body Frame</option>
+    <option value="engine">Engine part</option>
+    <option value="wheels">Wheels</option>
+    <option value="lights">Lights</option>
+    <option value="oil">Oil</option>
+    <option value="tires">Tires</option>
+    <option value="transmission">Transmission</option>
+    
+    </select>
+    <span class="text-danger" *ngIf="this.submit&&ct.errors?.['required']">
+        <p>place fill the box</p>
+    </span>
+</td>
+</tr>
+<tr>
+<td>
+<label for="name">Name :</label><br>
+<input type="text" id="name" placeholder="product name" name="name"required pattern="[a-zA-Z0-9 ]+" minlength="3"  [(ngModel)]="productInfo.productName" #name="ngModel">
+<span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+    <p>Name is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&name.errors?.['pattern']">
+    <p>Name Should contains only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&name.errors?.['minlength']">
+    <p>Name required min 3 letters</p>
+</span>
+</td>
+
+
+<td>
+<label for="mn">Model No :</label><br>
+<input type="text" id="mn" placeholder="year"  name="mn"required required pattern="^[0-9]*$" minlength="4" maxlength="4" [(ngModel)]="productInfo.model" #model="ngModel">
+<span class="text-danger" *ngIf="this.submit&&model.errors?.['required']">
+    <p>Model No is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&model.errors?.['pattern']">
+    <p>Model No should contains only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&model.errors?.['minlength']">
+    <p>Model required must have 4 digits numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&model.value==0">
+    <p>Model No can't be Zero</p>
+</span>
+</td>
+
+
+<td>
+<label for="brand">Brand :</label><br>
+<input type="text" id="brand" placeholder="Brand name" name="brand"required pattern="[a-zA-Z][a-zA-Z]+" minlength="3" [(ngModel)]="productInfo.brand" #brand="ngModel">
+<span class="text-danger" *ngIf="this.submit&&brand.errors?.['required']">
+    <p>Brand is required</p>
+</span>
+
+<span class="text-danger" *ngIf="this.submit&&brand.errors?.['pattern']">
+    <p>Model should contains only letters</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&brand.errors?.['minlength']">
+    <p>Model required min 3 letters</p>
+</span>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<label for="price">Price :</label><br>
+<input type="text" id="price" placeholder="Price" name="price" required pattern="^[0-9]*$" [(ngModel)]="productInfo.price" #price="ngModel">
+<span class="text-danger" *ngIf="this.submit&&price.errors?.['required']">
+    <p>Price is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&price.errors?.['pattern']">
+    <p>Price should contains only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&price.value==0">
+    <p>Price can't be Zero</p>
+</span>
+</td>
+
+<td>
+<label for="stock">Total No Of Stocks :</label><br>
+<input type="text" id="stock" placeholder="no of Stocks" name="ns" required pattern="^[0-9]*$" [(ngModel)]="productInfo.noOfStack" #stock="ngModel">
+<span class="text-danger" *ngIf="this.submit&&stock.errors?.['required']">
+    <p>Enter Stocks</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&stock.errors?.['pattern']">
+    <p>Stocks should cotains only numbers</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&stock.value==0">
+    <p>Stocks count can't be Zero</p>
+</span>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="rating">Rating:</label><br>
+<select id="rating" name="rating" required [(ngModel)]="productInfo.productRating" #rating="ngModel">
+    <option value="">select...</option>
+    <option value="Excelent">Excelent</option>
+    <option value="Good">Good</option>
+    
+    </select>
+    <span class="text-danger" *ngIf="this.submit&&rating.errors?.['required']">
+        <p>pleace enter your Rating</p>
+    </span>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="waranty">Waranty in Year :</label><br>
+<input type="text" id="warenty" name="waranty" placeholder="Waranty" required pattern="^[0-9.]*$" [(ngModel)]="productInfo.productWaranty" #waranty="ngModel">
+<span class="text-danger" *ngIf="this.submit&&waranty.value==0">
+    <p>Warenty can't be Zero</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&waranty.value>=5">
+    <p>Warenty should be less then 5 years</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&waranty.errors?.['required']">
+    <p>Warenty is required</p>
+</span>
+<span class="text-danger" *ngIf="this.submit&&waranty.errors?.['pattern']">
+    <p>Warenty should contains only numbers</p>
+</span>
+</td>
+</tr>
+<tr>
+    <td>
+        <button  class="btn btn-danger" (click)="goToAdminHome()" >Back</button>
+    </td>
+<td>
+<input type="submit" class="btn btn-primary"value="Update Product" (click)="submit=true">
+</td>
+
+</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>

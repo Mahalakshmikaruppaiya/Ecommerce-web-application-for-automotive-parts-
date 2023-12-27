@@ -1,0 +1,104 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    
+<h1>Profile Page</h1>
+<table class="container">
+    <tr>
+        <td rowspan="15"><img src="../../assets/profile/icon1.png" height="600" width="300"/></td>
+    </tr>
+    
+    <tr>
+        <td>First Name : </td>
+        <td>{{profile.userFirstName}}</td>
+        <td><button class="btn btn-primary" (click)="goToUpdateProfile(profile.userId)">Edit Profile</button></td>
+    </tr>
+    <tr>
+        <td>Last Name :</td>
+        <td>{{profile.userLastName}}</td>
+    </tr>
+    <tr>
+        <td>Email :</td>
+        <td>{{profile.userEmail}}</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>{{profile.userAge}}</td>
+    </tr>
+    <tr>
+        <td>Contact Number :</td>
+        <td>{{profile.userContactNumber}}</td>
+    </tr>
+    <tr>
+        <td>Gender :</td>
+        <td>{{profile.userGender}}</td>
+    </tr>
+    <tr>
+        <td>Country :</td>
+        <td>{{profile.userCountry}}</td>
+    </tr>
+    <tr>
+        <td>State :</td>
+        <td>{{profile.userState}}</td>
+    </tr>
+    <tr>
+        <td>District :</td>
+        <td>{{profile.userDistrict}}</td>
+    </tr>
+    <tr>
+        <td>Address :</td>
+        <td>{{profile.userAddress}}</td>
+    </tr>
+    <tr>
+        <td>PinCode</td>
+        <td>{{profile.userPincode}}</td>
+    </tr>
+</table>
+<footer>
+    <p>Company @copyrights OurCompany. All rights reserved.</p>
+  </footer>
+</body>
+</html>

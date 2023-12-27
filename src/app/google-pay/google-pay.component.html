@@ -1,0 +1,111 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    <table>
+        <tr>
+            <td>
+                <h1 style="color:white;">GooglePay Payment Page</h1>
+            </td>
+            <div class="back">
+                <td>
+                    <img src="../../assets/paymentMethods/arrow (2).png" height="30px" width="60px">
+                </td>
+                <td style="padding-left: 20px;">
+                    <button (click)="back()" class="btn btn-danger">Back</button>
+                </td>
+           </div>
+        </tr>
+    </table>
+        <div class="tbl"> 
+            <form (ngSubmit)="f.form.valid&&OnSubmit()" #f="ngForm" novalidate>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="name" >Name :</label><br>
+                            <input type="text" id="name" name="name" placeholder="Name" pattern="[a-zA-Z][a-zA-Z]+" minlength="3" [(ngModel)]="buyProduct.googlePayUserName" required #name="ngModel">
+                        <span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+                          <p>Name is required</p>
+                        </span>
+                        <span class="text-danger" *ngIf="this.submit&&name.errors?.['pattern']">
+                          <p>Name should containes only letters</p>
+                        </span>
+                        <span class="text-danger" *ngIf="this.submit&&name.errors?.['minlength']">
+                          <p>Name required min 3 letters</p>
+                        </span>
+                          </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="upi">UPI Id :</label><br>
+                            <input type="text" id="upi" name="upi" pattern="[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}" placeholder="GooglePay UPI" [(ngModel)]="buyProduct.upi" required #upi="ngModel">
+                        <span class="text-danger" *ngIf="this.submit&&upi.errors?.['required']">
+                          <p>UPI Id  is required</p>
+                        </span>
+                        <span class="text-danger" *ngIf="this.submit&&upi.errors?.['pattern']">
+                          <p>UPI Id  should have regular formate</p>
+                        </span>
+                          </td>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <td>
+                            <input class="btn btn-primary" type="submit" value="Pay" (click)="submit=true"> 
+                        </td>
+                        <td style="font-size: 20px;padding-left: 200px;color: white;">
+                            <img src="../../assets/payment/rs (3).png" height="50" width="50">
+                            Rs. {{product.price}}
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    <footer>
+        <p>Company @copyrights OurCompany. All rights reserved.</p>
+      </footer>
+      </body>
+      </html>

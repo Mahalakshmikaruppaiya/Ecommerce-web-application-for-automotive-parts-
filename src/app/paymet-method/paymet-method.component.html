@@ -1,0 +1,90 @@
+<html>
+<body>
+
+    <nav class="navbar navbar-expand-lg "style="background-color: #8B4513;"  data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"  style="color:blue;font-size:20px ;">Our Company</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a routerLink="/home2"routerLinkActive="active"class="nav-link" >Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a routerLink="/about"routerLinkActive="active"class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" id="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #p (keydown)="0">
+            <button class="btn btn-success" (click)="search(p.value)">Search</button>
+          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="reg">
+              <li class="nav-item"> 
+                <a routerLink="/home"routerLinkActive="active"class="nav-link">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/favourite"routerLinkActive="active"class="nav-link">Favourites</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/myPurchases"routerLinkActive="active"class="nav-link">My Purchases</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="/getProfile"routerLinkActive="active"class="nav-link">Profile</a>
+                </li>
+            
+            </ul>
+       
+        </div>
+      </div>
+    </nav>
+    <table>
+        <tr>
+            <td>
+                <h1 style="color:white">Choose Your Payment Option</h1>
+            </td>
+            <div class="back">
+            <td>
+                <img src="../../assets/paymentMethods/arrow (2).png" height="30px" width="60px">
+            </td>
+            <td style="padding-left: 20px;">
+                <button (click)="back()" class="btn btn-danger">Back</button>
+            </td>
+           </div>
+        </tr>
+    </table>
+    <div class="pay">
+    <table >
+        <tr>
+            <td id="td">
+                <img src="../../assets/paymentMethods/card.png" height="200" width="200" type="button" (click)="goToPayment()">
+                Add Card
+            </td>
+            <td id="td">    
+                <img src="../../assets/paymentMethods/caseOnDelivery.png" height="200" width="200" type="button" (click)="OnSubmit()">
+                Case On Delivery
+            </td>
+        </tr>
+        <tr>
+            <td id="td">
+                <img src="../../assets/paymentMethods/gPay.png" height="200" width="200" type="button" (click)="goToGooglePay()">
+                Google Pay
+            </td>
+            <td id="td">
+                <img src="../../assets/paymentMethods/bank.png" height="200" width="200" type="button" (click)="goToBankPayment()">
+                Bank
+            </td>
+        </tr>
+    </table>
+    </div>
+    <footer>
+        <p>Company @copyrights OurCompany. All rights reserved.</p>
+      </footer>
+      </body>
+      </html>
